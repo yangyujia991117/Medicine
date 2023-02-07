@@ -1,0 +1,32 @@
+spring:
+  servlet:
+    multipart:
+      #       设置单个文件大小
+      max-file-size: 50MB
+      #       设置单次请求文件的总大小
+      max-request-size: 50MB
+  datasource:
+    #url: jdbc:mysql://139.196.177.85:3306/Medicine?serverTimezone=CTT&characterEncoding=UTF-8&useSSL=false
+    # 连服务器时用上面的url，连本地时用下面的url
+    url: jdbc:mysql://localhost:3306/Medicine?serverTimezone=CTT&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: qq2827163
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    max-active: 200
+    max-idle: 20
+    min-idle: 10
+  thymeleaf:
+    mode: HTML
+    encoding: utf-8
+    cache: false
+  jackson:
+    time-zone: GMT+8
+
+mybatis:
+  mapper-locations: classpath:dataImpl/*/*Mapper.xml
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  max-http-header-size: 102400
+  port: 8001
+

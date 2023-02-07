@@ -1,0 +1,71 @@
+/* pages/mine/register/register.wxss */
+
+.content {
+  position:fixed;
+  top:10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  box-shadow:2rpx 4rpx 7rpx 7rpx #b6b4b4;
+
+}
+.user-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin-top: 50rpx;
+  margin-bottom: 60rpx;
+  border-radius: 50%;
+}
+.input{
+  border: 2rpx solid #c8c3c3;
+  height:45rpx;
+  padding: 20rpx;
+  width: 380rpx;
+  margin: 15rpx;
+  border-radius: 50rpx;
+  font-size: 25rpx !important;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+}
+.canSeePassword{
+  position:absolute;
+  top: 20rpx;
+	right: 5rpx;
+  z-index:1;
+  width: 45rpx; 
+  height: 45rpx;
+}
+.confirmPasswordError{
+  margin-left: 18rpx;
+  font-size: 25rpx;
+  color: red;
+  background-color: rgb(247, 233, 194);
+}
+.button{
+  width: 320rpx !important;
+  margin: 25rpx;
+  font-size: 28rpx !important;
+  color: white;
+  background-color: #00acc9 !important ;
+  border-radius:25px;
+}
+.button-hover{
+  width: 320rpx !important;
+  margin: 25rpx;
+  font-size: 28rpx !important;
+  color: white;
+  background-color: #028096 !important ;
+  border-radius:25px;
+}
+.greyButton{
+  width: 320rpx !important;
+  margin: 25rpx;
+  font-size: 28rpx !important;
+  color: white;
+  background-color: #a3a3a3 !important ;
+  border-radius:25px;
+}

@@ -1,0 +1,33 @@
+/* pages/mine/setting/setting.wxss */
+page{
+  background-color: #cdcdcd;
+  height: 100%;
+}
+.container0{
+  height: 100%;
+}
+.logoutContainer{
+  margin-top: 15rpx;
+  height: 110rpx;
+  width: 100%;
+  background-color: #FEFAF3;
+}
+.line{
+  height: 110rpx;
+  padding-left: 20rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 18px;
+  border-bottom: 1rpx solid #ddd;
+}
+.logoutLine{
+  height: 110rpx;
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border-bottom: 1rpx solid #ddd;
+}

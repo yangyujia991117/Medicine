@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/recognition/history/history",
+    "pages/recognition/addRecognition/addRecognition",
+    "pages/recognition/result/result",
+    
+    "pages/mine/user/user",
+    "pages/mine/index/index",
+    "pages/mine/register/register",
+    "pages/mine/login/login",
+    "pages/logs/logs",
+    "pages/mine/setting/setting"
+    
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00acc9",
+    "navigationBarTitleText": "医学检测小程序",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "backgroundColor": "#00acc9",
+    "selectedColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/recognition/history/history",
+        "text": "识别",
+        "iconPath": "image/recognition.png",
+        "selectedIconPath": "image/recognition_selected.png"
+      },
+      {
+        "pagePath": "pages/mine/user/user",
+        "text": "我的",
+        "iconPath": "image/me.png",
+        "selectedIconPath": "image/me_selected.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

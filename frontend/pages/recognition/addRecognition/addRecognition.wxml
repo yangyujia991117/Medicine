@@ -1,0 +1,39 @@
+<!--pages/imageRecognition/addRecognition/addRecognition.wxml-->
+
+<view wx:for="{{imgList}}" wx:for-item="img" wx:key="key">
+  <view class="superposition">
+    <!--删除和添加按钮-->
+    <view class="add_and_delete">
+      <!--内容删除按钮-->
+      <image hidden="{{imgList.length==1}}" class="add_and_delete_icon" src="../../../image/delete.png" bindtap="deleteImg" data-index="{{index}}"></image>
+      <!--添加按钮-->
+      <image hidden="{{hidden}}" class="add_and_delete_icon" src="../../../image/add.png" bindtap="addImg" data-index="{{index}}"></image>
+    </view>
+    <!--内容显示-->
+    <view class="item">
+      <!--图片-->
+      <image class="img_path" src="{{img.path}}" bindtap='preview' data-src="{{img.path}}"></image>
+      <!--选择图片按钮-->
+      <button class="choose_img_button" hover-class="choose_img_button_hover" bindtap="onCameraTap" data-index="{{index}}">选择图像</button>
+      <!--选择类型下拉框-->
+      <view class="value">
+        <!--文字区和三角形符号-->
+        <view class="select_result" bindtap="select" data-index="{{index}}">
+          <view style="display:inline-block;">{{img.type!=""?img.type:"选择图像类型"}}</view>
+          <image src="../../../image/sanjiao.png" class="sanjiao" style="{{img.execSelect?'transform:rotateZ(180deg)':''}}"/>
+        </view>
+        <!-- select -->
+        <view class="select" style="{{img.execSelect?'height:'+54*types.length+'rpx;':'border:0'}}">
+          <!--内层类型循环，注意内层循环的下标名改为typeIndex，这样就能直接用index获取外层数组下标-->
+          <view class="type" catchtap="getType" wx:for="{{types}}" wx:for-index="typeIndex" data-type="{{item}}" data-index="{{index}}" wx:key="type">{{item}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="recognize_area">
+  <!--识别按钮-->
+  <button  class="recognize_button" hover-class="recognize_button_hover" bindtap="recognize" >识别</button>
+</view>
+

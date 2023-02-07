@@ -1,0 +1,104 @@
+/* pages/recognition/result/result.wxss */
+.content {
+  text-align: justify;
+}
+.title{
+  font-size: 40rpx;
+  margin: 10rpx;
+}
+.left,
+.right {
+  display: inline-block;
+  vertical-align: top;
+  margin-top:20rpx;
+  width: 49%;
+}
+.item {
+  background-color: #fff;
+  margin: 15rpx 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 92%; 
+  border-radius: 20rpx;
+  overflow: hidden;
+  border:4rpx dotted #00acc9;
+  border-radius: 20rpx;
+}
+.item-img {
+  margin:5rpx 5rpx 0 5rpx;
+  max-height: 400rpx;
+}
+.item-title {
+  display: flex;
+  position: relative;
+}
+.item-text {
+  font-size: 30rpx;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;/*设置结果最多显示1行*/
+  overflow: hidden;
+  color: #1e1e1e;
+  margin: 15rpx;
+  line-height: 27rpx;
+}
+.item-info {
+  display: flex;
+  padding: 0 15rpx 10rpx 15rpx;
+  margin-top: 10rpx;
+  align-items: center;
+  font-size: 22rpx;
+  color: #1e1e1e;
+}
+.info-ava {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+.info-nickname {
+  flex: 1;
+  margin-left: 12rpx;
+  margin-right: 20rpx;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+.info-zan {
+  height: 26rpx;
+  margin-right: 8rpx;
+  align-items: center;
+}
+.zan {
+  color: #c4c4c4;
+  top: -7rpx;
+}
+.icon-zan{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 6rpx;
+}
+
+.none_more{
+  text-align: center;
+  padding-top: 7px;
+  margin-bottom: 15px;
+}
+.add_button[plain]{
+  padding: 0;
+  border: none;
+  width: 130rpx;
+  height: 130rpx;
+  display: flex;
+  position: fixed;
+  bottom: 4%;
+  right: 0;
+  margin-right: 5%;
+}
+.add_icon{
+  width: 130rpx;
+  height: 130rpx;
+}

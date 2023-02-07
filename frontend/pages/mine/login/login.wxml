@@ -1,0 +1,24 @@
+<!--pages/mine/login/login.wxml-->
+<view class="container">
+  <view class='content'>
+    <image class="user-avatar" src="../../../image/patient_avatar.png"></image>
+    <form bindsubmit='loginFormSubmit' bindreset='formReset'>
+      <view class="input">
+        <input name="phoneNumber" value="{{phoneNumber}}" placeholder="手机号码"  placeholder-style="color:#c8c3c3;" bindinput='getPhoneNumber' />
+      </view>
+      <view class='input'>
+        <image src="{{canSeePassword?'../../../image/eye-green.png':'../../../image/eye-grey.png'}}" bindtap="setCanSeePassword" class="canSeePassword"></image>
+        <input name="password" value="{{password}}" placeholder="密码"  placeholder-style="color:#c8c3c3;" bindinput='getPassword' password="{{!canSeePassword?true:false}}" />
+      </view>
+      <view style="margin-top: 30rpx;">
+        <button class="{{canLogin?'button':'greyButton'}}" form-type='submit' hover-class="button-hover">登录</button>
+        <button class='button' hover-class='button-hover' bindtap='registerClick' >新用户，去注册</button>
+      </view>
+    </form>
+  </view>
+  <view class='triangle3'></view>
+  <view class='triangle4'></view>
+  <view class='triangle5'></view>
+  <view class='triangle6'></view>
+</view>
+

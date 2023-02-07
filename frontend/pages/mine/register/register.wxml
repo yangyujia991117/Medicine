@@ -1,0 +1,33 @@
+<!--pages/mine/register/register.wxml-->
+<view class="container">
+  <view class='content'>
+    <image class="user-avatar" src="../../../image/patient_avatar.png"></image>
+    <form bindsubmit='registerFormSubmit' bindreset='formReset'>
+      <view class="input">
+        <input name="userName" value="{{userName}}"placeholder="用户名"  placeholder-style="color:#c8c3c3;" bindinput="getUserName" />
+      </view>
+      <view class='input'>
+        <image src="{{canSeePassword?'../../../image/eye-green.png':'../../../image/eye-grey.png'}}" bindtap="setCanSeePassword" class="canSeePassword"></image>
+        <input name="password" value="{{password}}" placeholder="密码"  placeholder-style="color:#c8c3c3;" bindinput='getPassword' password="{{!canSeePassword?true:false}}" />
+      </view>
+      <view class='input'>
+        <image src="{{canSeeConfirmPassword?'../../../image/eye-green.png':'../../../image/eye-grey.png'}}" bindtap="setCanSeeConfirmPassword" class="canSeePassword"></image>
+        <input name="confirmPassword" value="{{confirmPassword}}"placeholder="确认密码"  placeholder-style="color:#c8c3c3;" bindinput="getConfirmPassword" password="{{!canSeeConfirmPassword?true:false}}" />
+      </view>
+      <text class="confirmPasswordError" wx:if="{{passwordNotSame}}">两次输入的密码必须一致！</text>
+      <view class="input">
+        <input name="phoneNumber" value="{{phoneNumber}}"placeholder="手机号码"  placeholder-style="color:#c8c3c3;" bindinput="getPhoneNumber" />
+      </view>
+      <text class="confirmPasswordError" wx:if="{{phoneNumberWrong}}">请输入正确格式的手机号！</text>
+      <view style="margin-top: 30rpx;">
+        <button class="{{canRegister?'button':'greyButton'}}" form-type='submit' type='primary' hover-class='button-hover'>注册</button>
+        <button class='button' bindtap='loginClick' hover-class='button-hover'>已有账号，去登录</button>
+      </view>
+    </form>
+  </view>
+  <view class='triangle3'></view>
+  <view class='triangle4'></view>
+  <view class='triangle5'></view>
+  <view class='triangle6'></view>
+</view>
+

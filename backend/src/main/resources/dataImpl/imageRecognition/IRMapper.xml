@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.medicine.data.imageRecognition.IRMapper">
+
+    <insert id="addIRResult" parameterType="com.example.medicine.po.IRResult" useGeneratedKeys="true" keyProperty="id">
+        insert into IRResult(userId, urlList, resultTextList, resultImgList, recognitionTime)
+        values (#{userId}, #{urlList}, #{resultTextList}, #{resultImgList}, #{recognitionTime})
+    </insert>
+    <select id="getIRResultByUserId" resultMap="IRResult">
+        select * from IRResult
+        where userId = #{userId}
+    </select>
+
+    <resultMap id="IRResult" type="com.example.medicine.po.IRResult"></resultMap>
+</mapper>

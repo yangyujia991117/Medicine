@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.medicine.data.account.PatientAccountMapper">
+    <select id="getPatientAccountByPhoneNumber" resultMap="PatientAccount">
+        select * from PatientAccount
+        where phoneNumber = #{phoneNumber} limit 0,1
+    </select>
+    <insert id="addPatientAccount" parameterType="com.example.medicine.po.PatientAccount" useGeneratedKeys="true" keyProperty="id">
+        insert into PatientAccount(userName, password, phoneNumber, avatar)
+        values (#{userName}, #{password}, #{phoneNumber}, #{avatar})
+    </insert>
+    <select id="getMaxId" resultType="int">
+        select max(id) from PatientAccount
+    </select>
+    <delete id="deletePatientAccount">
+        delete from PatientAccount
+        where id = #{id}
+    </delete>
+
+    <resultMap id="PatientAccount" type="com.example.medicine.po.PatientAccount"></resultMap>
+</mapper>

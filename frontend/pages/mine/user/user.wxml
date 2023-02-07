@@ -1,0 +1,31 @@
+<!--pages/mine/user/user.wxml-->
+<view class="container0">
+  <!--设置的图标-->
+  <view class="setting" bindtap="gotoSetting">
+      <image src="/image/setting.png" mode="aspectFill" class="settingImg"></image>
+      <!-- <text class="settingText">设置</text> -->
+  </view>
+  <!--判断是否登录（是否要显示头像昵称）：如果没有登录-->
+  <view wx:if="{{!userInfo.phoneNumber}}" class="container1" mode="center" style="background-image:url({{backgroundImg}})">
+    <button plain='true' class="login_button" bindtap="gotoLogin">
+      <image mode='aspectFill' src='/image/login.png' class='login_icon'></image>
+    </button>
+    <view class="login_text" bindtap="gotoLogin">点击登录</view>
+  </view>
+  <!--如果登录了-->
+  <view wx:else class="container1" mode="center" style="background-image:url({{backgroundImg}})">
+      <image class="ava" src="{{userInfo.avatar}}" mode="widthFix"></image>
+      <view class="name">{{userInfo.userName}}</view>
+  </view>
+  <!--菜单列表-->
+  <view class="container2">
+    <view class="line" bindtap="gotoMyBody">
+      <image class="my_icon" src="/image/body.png"></image>
+      我的身体数据
+    </view>
+    <view class="line" bindtap="gotoMyRecognition">
+      <image class="my_icon" src="/image/tuxiangshibie.png"></image>
+      我的图像识别
+    </view>
+  </view>
+</view>

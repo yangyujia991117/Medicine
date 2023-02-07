@@ -1,0 +1,116 @@
+/* pages/imageRecognition/addRecognition/addRecognition.wxss */
+.superposition{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  /* height: 150rpx;
+  width: 100%; */
+  padding-bottom: 15rpx;
+}
+.add_and_delete{
+  position:absolute;
+  top: 0rpx;
+	right: 0rpx;
+  z-index:1;
+  display: flex;
+  flex-direction: column;
+}
+.add_and_delete_icon{
+  margin: 5rpx;
+  width: 45rpx; 
+  height: 45rpx;
+}
+.item{
+  height: 200rpx;
+  width: 120%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border:4rpx dotted #00acc9;
+  border-radius: 20rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  margin-top:18rpx;
+  padding: 15rpx 25rpx 0 25rpx;
+}
+.img_path{
+  width: 210rpx;
+  height: 210rpx;
+  border-radius: 10rpx;
+  margin-right: 8rpx;
+}
+.choose_img_button{
+  height: 60rpx !important;
+  width: 35%  !important;
+  font-size: 25rpx !important;
+}
+.value{
+  margin-top:55%;/*使其位于正中间*/
+  margin-left: 20rpx;
+  height: 400rpx;
+  display: flex;
+  flex-direction: column;
+}
+.select_result{
+  display: flex;
+  flex-direction: row;
+  font-size: small;
+}
+.sanjiao{
+  width: 35rpx;
+  height: 40rpx;
+  margin-left: 10rpx;
+  transition: 0.5s;/* 选转图片过渡 */
+}
+.select{
+  /* position: absolute; */
+  z-index: 10;
+  border: 2rpx solid #aaaaaa;
+  padding: 0 8rpx;
+  top:46rpx;
+  left: -10rpx;
+  width: 210rpx;
+  overflow: auto;
+  height: 0;
+  max-height: 200rpx;
+  background-color:#fff;
+  box-sizing: border-box;
+  transition: height 0.5s;/* 高度变换过渡 */
+}
+.select .type{
+  color: #aaaaaa;
+  border-top: 2px solid #dadada;
+  padding: 6rpx;
+  font-size: 25rpx;
+}
+.select :first-child{
+  border: 0;
+}
+
+.recognize_area{
+  position: fixed;
+  bottom: 0px;
+  z-index: 1;
+  width: 90%;
+  margin-bottom: 30px;
+  margin-left: 4%;
+}
+.recognize_button{
+  height: 90rpx !important;
+  width: 70%  !important;
+  color: white !important;
+  font-size: 30rpx !important;
+  background-color: #00acc9 !important ;
+  border-radius:25px;
+  float:medium;
+}
+.recognize_button_hover{
+  height: 90rpx !important;
+  width: 70%  !important;
+  color: white !important;
+  font-size: 30rpx !important;
+  background-color: #028096 !important ;
+  border-radius:25px;
+  float:medium;
+}
+
