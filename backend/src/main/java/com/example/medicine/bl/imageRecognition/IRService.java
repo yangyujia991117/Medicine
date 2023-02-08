@@ -1,6 +1,7 @@
 package com.example.medicine.bl.imageRecognition;
 
 import com.example.medicine.po.IRResult;
+import com.example.medicine.vo.IRResultVO;
 import com.example.medicine.vo.ResponseVO;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,5 +16,5 @@ public interface IRService {
     /**
      * 获取某用户的识别记录
      */
-    List<IRResult> getIRResultByUserId(int userId);
+    List<IRResultVO> getIRResultByUserId(int userId);
 }

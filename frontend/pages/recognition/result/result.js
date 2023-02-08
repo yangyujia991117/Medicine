@@ -11,7 +11,8 @@ Page({
     // resultList:[{path:"http://yangyujia.oss-cn-beijing.aliyuncs.com/images/1675669798420.33864.90897513406/0-X%E5%85%89-4IwZ1iqzhzr10d070e8a97bb9cb1d5b525b7290b3aad.jpg?Expires=1991029798&OSSAccessKeyId=LTAI5tSXR82EvWkwD53yaZFc&Signature=bK%2FsdlUM0RZb1E1N%2F1Al14eUojg%3D",text:"结果0结果0结果0结果0结果0"},
     // {path:"http://yangyujia.oss-cn-beijing.aliyuncs.com/images/1675669798420.33864.90897513406/1-MR-8PiNjXqyt4pFd4a2d4dd30fcbfc350c0f43fd7e1117e.jpg?Expires=1991029798&OSSAccessKeyId=LTAI5tSXR82EvWkwD53yaZFc&Signature=O9Mz6wPff6qaJTrMxzk6v56imWQ%3D",text:"结果1结果1结果1结果1结果1"},
     // {path:"http://yangyujia.oss-cn-beijing.aliyuncs.com/images/1675669798420.33864.90897513406/0-X%E5%85%89-4IwZ1iqzhzr10d070e8a97bb9cb1d5b525b7290b3aad.jpg?Expires=1991029798&OSSAccessKeyId=LTAI5tSXR82EvWkwD53yaZFc&Signature=bK%2FsdlUM0RZb1E1N%2F1Al14eUojg%3D",text:"结果0结果0结果0结果0结果0"}]
-    resultList:[]
+    resultList:[],
+    recognitionTime:""
   },
 
   /**
@@ -29,7 +30,19 @@ Page({
     //   })
     // }
     this.setData({
-      resultList:ir.resultList
+      resultList:ir.resultList,
+      recognitionTime:ir.recognitionTime
+    })
+  },
+
+  /**
+   * 点击查看图片，可以进行保存
+   */
+  preview(e) {
+    console.log(e.currentTarget.dataset.src.toString())
+    wx.previewImage({
+      urls: [e.currentTarget.dataset.src.toString()],
+      current: e.currentTarget.dataset.src.toString()
     })
   },
 

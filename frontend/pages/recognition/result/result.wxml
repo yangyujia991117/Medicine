@@ -1,5 +1,6 @@
 <!--pages/recognition/result/result.wxml-->
 <view class="content">
+  <view class="time">{{recognitionTime}}</view>
   <view class="title">识别结果：</view>
   <view class="left">
     <block wx:for="{{resultList}}" wx:for-item="item" wx:key="index">
@@ -15,7 +16,7 @@
 <!--每张图片的模板-->
 <template name="resultItem">
   <view class="item" >
-    <image class="item-img" src="{{item.path}}" mode="aspectFit"></image>
+    <image class="item-img" src="{{item.path}}" mode="aspectFit" bindtap="preview" data-src="{{item.path}}"></image>
     <view class="item-title">
       <text class="item-text">{{item.text}}</text>
     </view>

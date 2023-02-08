@@ -36,6 +36,24 @@ Page({
   },
 
   /**
+   * 去我的图像识别
+   */
+  gotoMyRecognition(){
+    if(!this.data.userInfo.userName){
+      wx.showToast({
+        title: "请先登录！",
+        icon:"none",
+        duration:800
+      })
+    }
+    else{
+      wx.navigateTo({
+        url: '../myRecognition/myRecognition?userId='+this.data.userInfo.id,
+      })
+    }
+  },
+
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {

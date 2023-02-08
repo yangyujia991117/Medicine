@@ -1,17 +1,20 @@
 {
   "pages": [
     "pages/recognition/history/history",
-    "pages/recognition/addRecognition/addRecognition",
     "pages/recognition/result/result",
-    
     "pages/mine/user/user",
+    "pages/mine/myRecognition/myRecognition",
+
+    
+    "pages/recognition/addRecognition/addRecognition",
+    
+  
     "pages/mine/index/index",
     "pages/mine/register/register",
     "pages/mine/login/login",
+    
     "pages/logs/logs",
     "pages/mine/setting/setting"
-    
-
   ],
   "window": {
     "backgroundTextStyle": "light",

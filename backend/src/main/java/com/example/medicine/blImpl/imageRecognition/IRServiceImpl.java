@@ -47,8 +47,19 @@ public class IRServiceImpl implements IRService {
     }
 
     @Override
-    public List<IRResult> getIRResultByUserId(int userId) {
-        return irMapper.getIRResultByUserId(userId);
+    public List<IRResultVO> getIRResultByUserId(int userId) {
+        List<IRResult> irResultList= irMapper.getIRResultByUserId(userId);
+        List<IRResultVO> irResultVOList=new ArrayList<>();
+        for(IRResult irResult:irResultList){
+            String[] texts=irResult.getResultTextList().split(";");
+            String[] paths=irResult.getResultImgList().split(";");
+            List<IRResultItem> resultList=new ArrayList<>();
+            for(int i=0;i<paths.length;i++){
+                resultList.add(new IRResultItem(paths[i],texts[i]));
+            }
+            irResultVOList.add(new IRResultVO(irResult.getUserId(),resultList,irResult.getRecognitionTime()));
+        }
+        return irResultVOList;
     }
 
     /**
@@ -185,7 +196,7 @@ public class IRServiceImpl implements IRService {
                 //result=result+";"+r;
                 //irResultVO.addResult(fileNames.get(i),"结果结果结果结果结果"+i );
                 irResultItems.add(new IRResultItem(fileNames.get(i),"结果结果结果结果结果"+i));
-                if(i==fileNames.size()-1){
+                if(i!=fileNames.size()-1){
                     resultTextList=resultTextList+"结果结果结果结果结果"+i+";";
                 }
                 else{
@@ -204,6 +215,8 @@ public class IRServiceImpl implements IRService {
             return new IRResultVO();
         }
         irResultVO.setResultList(irResultItems);
+        irResultVO.setRecognitionTime(recognitionTime);
+        irResultVO.setUserId(userId);
         return irResultVO;
     }
 }

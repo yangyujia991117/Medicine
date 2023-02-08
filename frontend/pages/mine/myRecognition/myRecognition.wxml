@@ -1,0 +1,23 @@
+<!--pages/mine/myRecognition/myRecognition.wxml-->
+<view wx:for="{{IRResultVOList}}" wx:for-item="irresultVO" wx:key="key">
+  <!--收藏和删除按钮-->
+  <view class="superposition">
+    <view class="collect_and_delete">
+      <!--收藏按钮-->
+      <image class="collect_and_delete_icon" src="../../../image/shanchu.png" bindtap="deleteRecognition" data-index="{{index}}"></image>
+      <!--删除按钮-->
+      <image class="collect_and_delete_icon" src="../../../image/shoucang.png" bindtap="collectRecognition" data-index="{{index}}"></image>
+    </view>
+    <view class="irresultVO">
+      <view class="time">{{irresultVO.recognitionTime}}</view>
+      <view class="resultList">
+        <view wx:for="{{irresultVO.resultList}}" wx:for-item="item">
+          <view class="item">
+            <image src="{{item.path}}" class="path" mode="aspectFill"  bindtap="preview" data-src="{{item.path}}"></image>
+            <text class="text">{{item.text}}</text>
+          </view>   
+        </view>
+      </view>
+    </view>
+  </view>
+</view> 

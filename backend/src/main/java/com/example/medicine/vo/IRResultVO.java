@@ -40,13 +40,25 @@ public class IRResultVO {
 //    public void addResultTextList(String t){
 //        this.resultTextList.add(t);
 //    }
+    int userId;
     List<IRResultItem> resultList;
-    public IRResultVO(List<IRResultItem> l){
+    String recognitionTime;
+    public IRResultVO(int u,List<IRResultItem> l,String t){
+        this.userId=u;
         this.resultList=l;
+        this.recognitionTime=t;
     }
 
     public IRResultVO() {
 
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getUserId() {
+        return userId;
     }
 
     public void setResultList(List<IRResultItem> resultList) {
@@ -55,5 +67,13 @@ public class IRResultVO {
 
     public List<IRResultItem> getResultList() {
         return resultList;
+    }
+
+    public void setRecognitionTime(String recognitionTime) {
+        this.recognitionTime = recognitionTime;
+    }
+
+    public String getRecognitionTime() {
+        return recognitionTime;
     }
 }
