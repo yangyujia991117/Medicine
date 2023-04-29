@@ -26,5 +26,5 @@ public interface IRService {
     /**
      * 获得某用户的最后一条识别记录
      */
-    IRResult getLastIRResultByUserId(int userId);
+    IRResultVO getLastIRResultByUserId(int userId);
 }

@@ -76,16 +76,23 @@ public class IRServiceImpl implements IRService {
     }
 
     @Override
-    public IRResult getLastIRResultByUserId(int userId) {
-        IRResult irResult=null;
+    public IRResultVO getLastIRResultByUserId(int userId) {
+        IRResultVO irResultVO=null;
         try{
-            irResult=irMapper.getLastIRResultByUserId(userId);
+            IRResult irResult=irMapper.getLastIRResultByUserId(userId);//得到最后一个识别记录
+            String[] texts=irResult.getResultTextList().split(";");
+            String[] paths=irResult.getResultImgList().split(";");
+            List<IRResultItem> irResultItems=new ArrayList<>();
+            for(int i=0;i< texts.length;i++){
+                irResultItems.add(new IRResultItem(paths[i],texts[i]));
+            }
+            irResultVO=new IRResultVO(irResult.getId(),irResult.getUserId(),irResultItems,irResult.getRecognitionTime());
         }
         catch (Exception e){
             e.printStackTrace();
             System.out.println(GETLASTRESULT_FAIL);
         }
-        return irResult;
+        return irResultVO;
     }
 
     /**

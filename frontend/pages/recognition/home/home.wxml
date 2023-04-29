@@ -9,7 +9,6 @@
       <text class="text">
       这是一个医学检测小程序，您可以上传多张医学影像图片，小程序将会告诉您这些医学影像所显示的疾病隐患。\n医学影像类型支持照片、CT、MR、X光、PET、超声，图片格式支持jpg、png等。\n
       </text>
-      
     </view>
   </view>
   <view class="container2" wx:if="{{irResult.length!=0}}">
@@ -28,7 +27,6 @@
       </block>
     </view>
   </view>
-  
 </view>
 
 <!--每张图片的模板-->

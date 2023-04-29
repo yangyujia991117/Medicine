@@ -1,5 +1,7 @@
 package com.example.medicine.vo;
 
+import com.example.medicine.po.IRResult;
+
 import java.util.ArrayList;
 import java.util.List;
 
