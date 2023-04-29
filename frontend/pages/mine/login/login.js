@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:0,//用户id
     canLogin:false,
     phoneNumber:"",
     password:"",
@@ -63,7 +64,7 @@ Page({
     if(this.data.canLogin){
       //登录
       wx.request({
-        url: 'http://117.181.137.102:8001/Medicine/PatientAccountController/loginPatientAccount',
+        url: 'http://192.168.0.104:8001/Medicine/PatientAccountController/loginPatientAccount',
         data:{
           "phoneNumber":that.data.phoneNumber,
           "password":that.data.password,
@@ -76,8 +77,13 @@ Page({
             that.clear()
             console.log(res.data.content)
             wx.setStorageSync("userInfo", res.data.content)
+            that.setData({
+              id:res.data.content.id
+            })
+            //获取用户的最后一条识别记录
+            that.getLastResult()
             app.globalData.userNeedFlash=true
-            app.globalData.historyNeedFlash=true
+            app.globalData.homeNeedFlash=true
             wx.showToast({
               title: '登录成功！',
               icon:'success',
@@ -115,6 +121,27 @@ Page({
   setCanSeePassword(){
     this.setData({
       canSeePassword:!this.data.canSeePassword
+    })
+  },
+  /**
+   * 获取用户的最后一条识别记录
+   */
+  getLastResult(){
+    const that=this
+    wx.request({
+      url: 'http://192.168.0.104:8001/Medicine/IRController/getLastIRResultByUserId',
+      data:{
+        "userId":that.data.id,
+      },
+      header:{'Content-Type': 'application/x-www-form-urlencoded'},
+      method:'GET',
+      success:function(res){
+        console.log(res.data)
+        if(res.data.success){
+          wx.setStorageSync('lastResult', res.data.content)
+          console.log("该用户的最后一次识别记录:",res.data.content)
+        }
+      }
     })
   },
   /**

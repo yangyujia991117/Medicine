@@ -4,6 +4,7 @@ import com.aliyun.oss.OSSClient;
 import com.example.medicine.bl.imageRecognition.IRService;
 import com.example.medicine.data.imageRecognition.IRMapper;
 import com.example.medicine.po.IRResult;
+import com.example.medicine.utils.PicUtils;
 import com.example.medicine.vo.IRResultItem;
 import com.example.medicine.vo.IRResultVO;
 import com.example.medicine.vo.ResponseVO;
@@ -24,6 +25,8 @@ public class IRServiceImpl implements IRService {
     private final static String PYTHONFILE_LOCAL="G:\\研一下\\医学小程序\\代码\\backend\\python\\4.py";
     private final static String PYTHONFILE_ALIYUN="G:\\研一下\\医学小程序\\代码\\backend\\python\\5.py";
     private final static String RECOGNIZE_FAIL = "识别失败";
+    private final static String DELETE_FAIL = "删除失败";
+    private final static String GETLASTRESULT_FAIL = "获取用户的最后一条识别记录失败";
     private final static String FILE_SEPERATOR="/";
 
     @Autowired
@@ -57,9 +60,32 @@ public class IRServiceImpl implements IRService {
             for(int i=0;i<paths.length;i++){
                 resultList.add(new IRResultItem(paths[i],texts[i]));
             }
-            irResultVOList.add(new IRResultVO(irResult.getUserId(),resultList,irResult.getRecognitionTime()));
+            irResultVOList.add(new IRResultVO(irResult.getId(),irResult.getUserId(),resultList,irResult.getRecognitionTime()));
         }
         return irResultVOList;
+    }
+
+    @Override
+    public void deleteIRResultById(int id) {
+        try{
+            irMapper.deleteIRResultById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println(DELETE_FAIL);
+        }
+    }
+
+    @Override
+    public IRResult getLastIRResultByUserId(int userId) {
+        IRResult irResult=null;
+        try{
+            irResult=irMapper.getLastIRResultByUserId(userId);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println(GETLASTRESULT_FAIL);
+        }
+        return irResult;
     }
 
     /**
@@ -135,7 +161,11 @@ public class IRServiceImpl implements IRService {
 
             try {
                 //不压缩，直接获得图片文件流
-                InputStream inputStream = picture.getInputStream();
+                //InputStream inputStream = picture.getInputStream();
+                //压缩图片到指定120K以内
+                System.out.println("压缩图片到指定120K以内");
+                byte[] bytes = PicUtils.compressPicture(picture.getBytes(), 120);
+                ByteArrayInputStream inputStream = new ByteArrayInputStream(bytes);
                 //上传图片到阿里云
                 System.out.println("开始上传阿里云");
                 ossClient.putObject(bucketName, fileName, inputStream);
@@ -208,7 +238,9 @@ public class IRServiceImpl implements IRService {
             }
         }
         try {
-            irMapper.addIRResult(new IRResult(userId, String.join(";", fileNames), String.join(";", fileNames), resultTextList,recognitionTime));
+            IRResult irResult=new IRResult(userId, String.join(";", fileNames), String.join(";", fileNames), resultTextList,recognitionTime);
+            irMapper.addIRResult(irResult);
+            irResultVO.setId(irResult.getId());
         }
         catch (Exception e){
             e.printStackTrace();

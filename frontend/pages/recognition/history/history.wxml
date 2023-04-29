@@ -1,5 +1,0 @@
-<!--pages/recognition/history/history.wxml-->
-<!--去识别加号按钮-->
-<button plain='true' class="add_button" bindtap="gotoAddRecognition" >
-        <image mode='aspectFill' src='/image/addRecognition.png' class='add_icon'></image>
-</button>

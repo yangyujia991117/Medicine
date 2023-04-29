@@ -7,18 +7,56 @@
   width: 100%; */
   padding-bottom: 15rpx;
 }
-.collect_and_delete{
+
+.operation{
   position:absolute;
   top: 20rpx;
 	right: 20rpx;
   z-index:1;
   display: flex;
+  flex-direction: column;
+}
+.collect_and_delete{
+  display: flex;
   flex-direction: row;
+  justify-content: flex-end;/*使得内部组件右对齐*/
 }
 .collect_and_delete_icon{
   margin: 10rpx;
   width: 45rpx; 
   height: 45rpx;
+}
+.delete_or_not{
+  height: 150rpx;
+  width: 300rpx;
+  background-color: white;
+  border:1rpx solid #00acc9;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delete_or_not_button{
+  display: flex;
+  flex-direction: row;
+  width: 300rpx;
+}
+.confirm_button{
+  background-color: #00acc9;
+  height: 60rpx !important;
+  font-size: 25rpx !important;
+  width: 135rpx !important;
+  margin: 3rpx;
+  color: #fff;
+}
+.cancel_button{
+  background-color: #c0c2c2;
+  height: 60rpx !important;
+  font-size: 25rpx !important;
+  width: 135rpx !important;
+  margin: 3rpx;
+  color:#fff;
 }
 .irresultVO{
   width: 120%;

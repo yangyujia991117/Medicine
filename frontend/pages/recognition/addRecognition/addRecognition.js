@@ -1,6 +1,7 @@
 // pages/imageRecognition/addRecognition/addRecognition.js
 const Multipart = require('../../../utils/Multipart.min.js')
 const util = require('../../../utils/util.js')
+const app=getApp()
 Page({
 
   /**
@@ -66,7 +67,7 @@ Page({
     new Multipart({
 			files,
       fields,
-    }).submit('http://117.181.137.102:8001/Medicine/IRController/testRecognize').then((res) => {
+    }).submit('http://192.168.0.104:8001/Medicine/IRController/testRecognize').then((res) => {
       console.log(res.data)
       wx.hideLoading()
       if(res.data.success){
@@ -76,6 +77,8 @@ Page({
           title: '识别成功！',
           duration:800
         })
+        wx.setStorageSync("lastResult", irResultVO)//将最后一次结果放入缓存
+        app.globalData.homeNeedFlash=true
         setTimeout(()=>{
           wx.navigateTo({
             //注意：若对象的参数或数组的元素中遇到地址，地址中包括?、&这些特殊符号时，对象/数组先要通过JSON.stringify转化为字符串再通过encodeURIComponent编码，接收时，先通过decodeURIComponent解码再通过JSON.parse转换为JSON格式的对象/数组
@@ -181,7 +184,6 @@ Page({
    */
   clear(){
     this.setData({
-      userId:0,
       imgList:[
         {path:"../../../image/defaultImg.png",type:"",execSelect:false}
       ],

@@ -2,11 +2,20 @@
 <view wx:for="{{IRResultVOList}}" wx:for-item="irresultVO" wx:key="key">
   <!--收藏和删除按钮-->
   <view class="superposition">
-    <view class="collect_and_delete">
-      <!--收藏按钮-->
-      <image class="collect_and_delete_icon" src="../../../image/shanchu.png" bindtap="deleteRecognition" data-index="{{index}}"></image>
-      <!--删除按钮-->
-      <image class="collect_and_delete_icon" src="../../../image/shoucang.png" bindtap="collectRecognition" data-index="{{index}}"></image>
+    <view class="operation">
+      <view class="collect_and_delete">
+        <!--收藏按钮-->
+        <image class="collect_and_delete_icon" src="../../../image/shanchu.png" bindtap="clickDeleteButton" data-index="{{index}}"></image>
+        <!--删除按钮-->
+        <image class="collect_and_delete_icon" src="../../../image/shoucang.png" bindtap="collectRecognition" data-index="{{index}}"></image>
+      </view>
+      <view class="delete_or_not" hidden="{{irresultVO.ask_hidden}}">
+        <text style="margin-top: 10%;margin-bottom: 5%;">确定删除？</text>
+        <view class="delete_or_not_button">
+          <button class="confirm_button" bindtap="deleteRecognition" data-index="{{index}}">确定</button>
+          <button class="cancel_button" bindtap="clickCancelButton" data-index="{{index}}">取消</button>
+        </view>
+      </view>
     </view>
     <view class="irresultVO">
       <view class="time">{{irresultVO.recognitionTime}}</view>

@@ -1,4 +1,4 @@
-// pages/recognition/history/history.js
+// pages/recognition/home/home.js
 const app = getApp()
 Page({
 
@@ -7,9 +7,11 @@ Page({
    */
   data: {
     id:0,
+    irResult:[]
   },
   gotoAddRecognition(){
-    if(this.data.id!=0){
+    const ui = wx.getStorageSync("userInfo")
+    if(ui.id){
       wx.navigateTo({
         url: '/pages/recognition/addRecognition/addRecognition?userId='+this.data.id
       })
@@ -33,20 +35,32 @@ Page({
   /**
    * 重新设置页面所有数据 
    */
-  getData(){
+  getUserData(){
     const ui = wx.getStorageSync("userInfo")
     if(ui.id){
       this.setData({
         id:ui.id,
       })
     }
+    const lastResult=wx.getStorageSync("lastResult")
+    if(lastResult){//不为null
+      this.setData({
+        irResult:lastResult
+      })
+    }
+    else{
+      this.setData({
+        irResult:[]
+      })
+    }
+    console.log("首页刷新最新识别记录",this.data.irResult)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.getData()
+    this.getUserData()
   },
 
   /**
@@ -60,9 +74,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    if(app.globalData.historyNeedFlash){
-      this.getData()
-      app.globalData.historyNeedFlash=false
+    if(app.globalData.homeNeedFlash){
+      this.getUserData()
+      app.globalData.homeNeedFlash=false
     }
   },
 

@@ -2,7 +2,9 @@
 App({
   globalData:{
     userNeedFlash:false,
-    historyNeedFlash:false,
+    homeNeedFlash:false,
+    hasNewRecognition:false,
+    socket:'http://192.168.0.104:8001/',
   },
   onLaunch() {
     // 展示本地存储能力

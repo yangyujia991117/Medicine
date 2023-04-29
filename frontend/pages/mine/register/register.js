@@ -1,5 +1,6 @@
 // pages/mine/register/register.js
 const util = require('../../../utils/util.js')
+const app=getApp()
 Page({
 
   /**
@@ -140,7 +141,7 @@ Page({
     if(this.data.canRegister){
       //注册
       wx.request({
-        url: 'http://117.181.137.102:8001/Medicine/PatientAccountController/registerPatientAccount',
+        url: 'http://192.168.0.104:8001/Medicine/PatientAccountController/registerPatientAccount',
         data:{"userName":that.data.userName,
         "password":that.data.password,
         "phoneNumber":that.data.phoneNumber},

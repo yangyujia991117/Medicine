@@ -2,14 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.medicine.data.imageRecognition.IRMapper">
 
-    <insert id="addIRResult" parameterType="com.example.medicine.po.IRResult" useGeneratedKeys="true" keyProperty="id">
+    <insert id="addIRResult" parameterType="com.example.medicine.po.IRResult" >
         insert into IRResult(userId, urlList, resultTextList, resultImgList, recognitionTime)
         values (#{userId}, #{urlList}, #{resultTextList}, #{resultImgList}, #{recognitionTime})
+        <selectKey keyColumn="id" keyProperty="id" resultType="int" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
     </insert>
+<!--    <insert id="addIRResult" parameterType="com.example.medicine.po.IRResult" useGeneratedKeys="true" keyColumn="id" keyProperty="id">-->
+<!--        insert into IRResult(userId, urlList, resultTextList, resultImgList, recognitionTime)-->
+<!--        values (#{userId}, #{urlList}, #{resultTextList}, #{resultImgList}, #{recognitionTime})-->
+<!--    </insert>-->
     <select id="getIRResultByUserId" resultMap="IRResult">
         select * from IRResult
         where userId = #{userId}
     </select>
-
+    <delete id="deleteIRResultById">
+        delete
+        from IRResult
+        where id = #{id}
+    </delete>
+    <select id="getLastIRResultByUserId" resultMap="IRResult">
+        select * from IRResult
+        where id = (select max(id) from IRResult where userId=#{userId})
+    </select>
     <resultMap id="IRResult" type="com.example.medicine.po.IRResult"></resultMap>
 </mapper>

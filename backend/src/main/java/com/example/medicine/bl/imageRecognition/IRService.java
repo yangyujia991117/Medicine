@@ -17,4 +17,14 @@ public interface IRService {
      * 获取某用户的识别记录
      */
     List<IRResultVO> getIRResultByUserId(int userId);
+
+    /**
+     * 删除用户的某条识别记录
+     */
+    void deleteIRResultById(int id);
+
+    /**
+     * 获得某用户的最后一条识别记录
+     */
+    IRResult getLastIRResultByUserId(int userId);
 }

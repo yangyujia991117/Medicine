@@ -1,18 +1,14 @@
 {
   "pages": [
-    "pages/recognition/history/history",
+    
+    "pages/recognition/home/home",
     "pages/recognition/result/result",
     "pages/mine/user/user",
     "pages/mine/myRecognition/myRecognition",
-
-    
     "pages/recognition/addRecognition/addRecognition",
-    
-  
     "pages/mine/index/index",
     "pages/mine/register/register",
     "pages/mine/login/login",
-    
     "pages/logs/logs",
     "pages/mine/setting/setting"
   ],
@@ -27,7 +23,7 @@
     "selectedColor": "#ffffff",
     "list": [
       {
-        "pagePath": "pages/recognition/history/history",
+        "pagePath": "pages/recognition/home/home",
         "text": "识别",
         "iconPath": "image/recognition.png",
         "selectedIconPath": "image/recognition_selected.png"

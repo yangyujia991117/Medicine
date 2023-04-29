@@ -19,5 +19,19 @@ public class IRMapperTest extends TmallApplicationTest {
             System.out.println(irResult.toString());
         }
     }
+//    @Test
+//    public void testDeleteIRResultByUserId(){
+//        List<IRResult> irResults= irMapper.getIRResultByUserId(1);
+//        for(IRResult irResult:irResults){
+//            System.out.println(irResult.toString());
+//        }
+//    }
+    @Test
+    public void testGetLastIRResultByUserId(){
+        IRResult irResult=irMapper.getLastIRResultByUserId(2);
+        if(irResult!=null) {
+            System.out.println(irResult.toString());
+        }
+    }
 
 }

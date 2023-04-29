@@ -6,7 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    id:0,
+    userName:'',
+    password:'',
+    safePassword:'',
+    phoneNumber:'',
+    avatar:''
   },
 
   /**
@@ -20,6 +25,7 @@ Page({
       success: function (res) {
         if (res.confirm) {//点击确定
           wx.removeStorageSync("userInfo")
+          wx.removeStorageSync("lastResult")
           app.globalData.userNeedFlash=true
           setTimeout(()=>{
             wx.navigateBack({
@@ -35,7 +41,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const ui=wx.getStorageSync('userInfo')
+    if(ui){
+      var safePassword= "*".repeat(ui.password.length);
+      this.setData({
+        id:ui.id,
+        userName:ui.userName,
+        password:ui.password,
+        safePassword:safePassword,
+        phoneNumber:ui.phoneNumber,
+        avatar:ui.avatar
+      })
+    }
   },
 
   /**

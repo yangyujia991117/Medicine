@@ -1,9 +1,34 @@
 <!--pages/mine/setting/setting.wxml-->
 <view class="container0">
+  <!--个人信息-->
+  <view class="infoContainer">
+    <view class="avatarLine">
+      <text class="leftText">头像</text>
+      <image class="avatar" mode="widthFix" src="{{avatar}}" bindtap='changeAvatar'></image>
+    </view>
+    <view class="infoLine">
+      <text class="leftText">用户名</text>
+      <text class="rightText">{{userName}}</text>
+    </view>
+    <view class="infoLine">
+      <text class="leftText">密码</text>
+      <text class="rightText">{{safePassword}}</text>
+    </view>
+    <view class="infoLine">
+      <text class="leftText">手机号</text>
+      <text class="rightText">{{phoneNumber}}</text>
+    </view>
+  </view>
   <!--退出登录-->
   <view class="logoutContainer">
     <view class="logoutLine" bindtap="logout">
       <text>退出登录</text>
+    </view>
+  </view>
+  <!--退出登录-->
+  <view class="logoutContainer">
+    <view class="logoutLine" bindtap="logout">
+      <text>删除账号</text>
     </view>
   </view>
 

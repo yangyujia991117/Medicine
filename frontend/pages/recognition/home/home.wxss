@@ -1,0 +1,106 @@
+/* pages/recognition/home/home.wxss */
+page{
+  width: 100%;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top:10% ;
+}
+.container1{
+  position: absolute;
+  top: 50rpx;
+  display: flex;
+  width: 650rpx;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: gray dashed 2rpx;
+  border-radius: 30rpx;
+  background-color: #FFFFE0;
+  margin: 0 5% 5% 5%; 
+}
+.add_button[plain]{
+  padding: 0;
+  border: none;
+  width: 200rpx;
+  height: 200rpx;
+  margin: 3% 0 0 0;
+}
+.add_icon{
+  width: 200rpx;
+  height: 200rpx;
+}
+.text_block{
+  margin:0 5% 0 5%;
+  padding:0 2% 0 3%;
+}
+.text{
+  color: rgb(94, 94, 94);
+}
+.container2{
+  position: absolute;
+  top: 550rpx;
+  width: 650rpx;
+  border: gray dashed 2rpx;
+  border-radius: 30rpx;
+  margin: 3% 5% 0 5%; 
+  text-align: justify;
+}
+.titleAndTime{
+  display: flex;
+  flex-direction: row;
+  flex-flow: row nowrap;
+  justify-content: space-between;/*两侧对齐*/
+  align-items: center;
+  margin-top:2% ;
+}
+.time{
+  font-size: 15px;
+  color:rgb(141, 141, 141);
+  margin-right: 3%;
+}
+.title{
+  font-size: 35rpx; 
+  margin-left: 3%;
+}
+.left,
+.right {
+  display: inline-block;
+  vertical-align: top;
+  margin-top:20rpx;
+  width: 49%;
+}
+.item {
+  background-color: #fff;
+  margin: 15rpx 4%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 92%; 
+  border-radius: 20rpx;
+  overflow: hidden;
+  border:4rpx dotted #00acc9;
+  border-radius: 20rpx;
+}
+.item-img {
+  margin:5rpx 5rpx 0 5rpx;
+  max-height: 400rpx;
+}
+.item-title {
+  display: flex;
+  position: relative;
+}
+.item-text {
+  font-size: 30rpx;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;/*设置结果最多显示1行*/
+  overflow: hidden;
+  color: #1e1e1e;
+  margin: 15rpx;
+  line-height: 27rpx;
+}

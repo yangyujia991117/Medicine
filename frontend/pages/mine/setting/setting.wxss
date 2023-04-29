@@ -6,20 +6,51 @@ page{
 .container0{
   height: 100%;
 }
+.infoContainer{
+  margin-top: 15rpx;
+  height: 550rpx;
+  width: 100%;
+  background-color: #FEFAF3;
+}
+.avatarLine{
+  height: 220rpx;
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row nowrap;
+  justify-content: space-between;/*两侧对齐*/
+  align-items: center;
+  font-size: 18px;
+  border-bottom: 1rpx solid #ddd;
+}
+.avatar{
+  width:25%;
+  margin-right: 28rpx;
+  border: 2px solid white;
+  border-radius: 25rpx;
+}
+.infoLine{
+  height: 110rpx;
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row nowrap;
+  justify-content: space-between;/*两侧对齐*/
+  align-items: center;
+  font-size: 18px;
+  border-bottom: 1rpx solid #ddd;
+}
+.leftText{
+  margin-left: 25rpx;
+}
+.rightText{
+  margin-right: 30rpx;
+}
 .logoutContainer{
   margin-top: 15rpx;
   height: 110rpx;
   width: 100%;
   background-color: #FEFAF3;
-}
-.line{
-  height: 110rpx;
-  padding-left: 20rpx;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 18px;
-  border-bottom: 1rpx solid #ddd;
 }
 .logoutLine{
   height: 110rpx;

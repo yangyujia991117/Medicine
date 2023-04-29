@@ -1,0 +1,42 @@
+<!--pages/recognition/home/home.wxml-->
+<!--去识别加号按钮-->
+<view class="container">
+  <view class="container1">
+    <button plain='true' class="add_button" bindtap="gotoAddRecognition" >
+      <image mode='aspectFill' src='/image/addRecognition2.png' class='add_icon'></image>
+    </button>
+    <view class="text_block">
+      <text class="text">
+      这是一个医学检测小程序，您可以上传多张医学影像图片，小程序将会告诉您这些医学影像所显示的疾病隐患。\n医学影像类型支持照片、CT、MR、X光、PET、超声，图片格式支持jpg、png等。\n
+      </text>
+      
+    </view>
+  </view>
+  <view class="container2" wx:if="{{irResult.length!=0}}">
+    <view class="titleAndTime">
+      <view class="title">上次识别结果：</view>
+      <view class="time">{{irResult.recognitionTime}}</view>
+    </view>
+    <view class="left">
+      <block wx:for="{{irResult.resultList}}" wx:for-item="item" wx:key="index">
+        <template is="resultItem" data="{{item,index}}" wx:if="{{index%2==0}}" ></template>
+      </block>
+    </view>
+    <view class="right">
+      <block wx:for="{{irResult.resultList}}" wx:for-item="item" wx:key="index">
+        <template is="resultItem" data="{{item,index}}" wx:if="{{index%2==1}}" ></template>
+      </block>
+    </view>
+  </view>
+  
+</view>
+
+<!--每张图片的模板-->
+<template name="resultItem">
+  <view class="item" >
+    <image class="item-img" src="{{item.path}}" mode="aspectFit" bindtap="preview" data-src="{{item.path}}"></image>
+    <view class="item-title">
+      <text class="item-text">{{item.text}}</text>
+    </view>
+  </view>
+</template>
