@@ -96,6 +96,7 @@ Page({
       }
       }).catch(error => {
         console.log("上传失败")
+        console.log(error)
       });
    
   },
